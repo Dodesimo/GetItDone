@@ -1,6 +1,6 @@
 import {StyleSheet, View} from 'react-native';
 import Task from './components/task'
-
+/*test*/
 export default function App() {
 
   return (<View style={styles.container}>
