@@ -2,41 +2,36 @@ import {StyleSheet, View} from 'react-native';
 import Task from './components/task'
 
 export default function App() {
+
   return (<View style={styles.container}>
 
-    /*today's tasks*/
     <View style={styles.tasksWrapper}>
       <text style={styles.sectionTitle}>Today's tasks</text>
-
-      <View style={styles.items}>
-
-        /*where tasks will go*/
-
-        <Task text={'test'}></Task>
-
-      </View>
-
-
+      <View style={styles.items}><Task text={'test'}></Task></View>
     </View>
-
-
   </View>);
 }
 
 const styles = StyleSheet.create({
   container: {
 
-    flex: 1, backgroundColor: '#E8EAED',
+    flex: 1,
+    backgroundColor: '#E8EAED',
 
-  }, tasksWrapper: {
+  },
+  tasksWrapper: {
 
-    paddingTop: 80, paddingHorizontal: 20,
+    paddingTop: 80,
+    paddingHorizontal: 20,
 
-  }, sectionTitle: {
+  },
+  sectionTitle: {
 
-    fontSize: 24, fontWeight: "bold"
+    fontSize: 24,
+    fontWeight: "bold"
 
-  }, items: {
+  },
+  items: {
 
     marginTop: 30,
 
