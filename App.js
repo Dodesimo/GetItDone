@@ -10,11 +10,19 @@ import {
 } from 'react-native';
 import Task from "./components/Task"
 import React, {useState} from "react";
+import textInput from "react-native-web/dist/exports/TextInput";
 
 export default function App() {
 
     const [task, setTask] = useState();
     const [taskItems, setTaskItems] = useState([]);
+    const [backgroundColor, setBackgroundColor] = useState('#E8EAED')
+
+    const backgroundHandler = () => {
+
+        setBackgroundColor('#FFFFF')
+
+    }
 
     const handleAddTask = () => {
 
@@ -32,18 +40,24 @@ export default function App() {
 
     }
 
-    return (<View style={styles.container}>
+    const configureNightTheme = () => {
+
+        styles.background
+
+    }
+
+    return (<View style={[styles.container, {backgroundColor : backgroundColor}]}>
         <ScrollView
 
             contentContainerStyle={{flexGrow: 1}}
             keyboardShouldPersistTaps={'handled'}>
 
         <View style={styles.tasksWrapper}>
-            <Text style={styles.sectionTitle}>What's poppin' today?</Text>
+            <Text style={styles.sectionTitle} onPress={configureNightTheme}>What's poppin' today?</Text>
             <View style={styles.items}>
                 {taskItems.map((item, index) => {
                     return (
-                        <TouchableOpacity key={index} onPress={() => completeTask(index)}>
+                        <TouchableOpacity key={index} onPress={setBackgroundColor}>
                             <Task text={item} />
                         </TouchableOpacity>
                     )
@@ -73,7 +87,7 @@ export default function App() {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1, backgroundColor: '#E8EAED',
+        flex: 1,
 
     }, tasksWrapper: {
 
